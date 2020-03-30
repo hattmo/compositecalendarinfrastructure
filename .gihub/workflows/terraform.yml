@@ -16,6 +16,7 @@ jobs:
           tf_actions_subcommand: 'plan'
           tf_actions_comment: false
       - name: 'Terraform Apply'
+        if: startsWith(github.ref,'refs/tags/')
         uses: hashicorp/terraform-github-actions@master
         with:
           tf_actions_version: 0.12.13
