@@ -46,6 +46,7 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
 
 output "client_certificate" {
   value = google_container_cluster.primary.master_auth.0.client_certificate
+  sensitive = true
 }
 
 output "client_key" {
