@@ -16,6 +16,7 @@ resource "google_container_cluster" "primary" {
   remove_default_node_pool = true
   initial_node_count       = 1
 
+  enable_legacy_abac = true
   master_auth {
     client_certificate_config {
       issue_client_certificate = true
