@@ -10,7 +10,7 @@ provider "google" {
 }
 
 resource "google_container_cluster" "primary" {
-  name     = "compositeCalendarCluster"
+  name     = "compositecalendar-cluster"
   location = "us-central1"
 
   remove_default_node_pool = true
