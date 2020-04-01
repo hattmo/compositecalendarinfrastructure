@@ -26,7 +26,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
-  name       = "compositeCalendarNodePool"
+  name       = "compositecalendar-nodepool"
   location   = "us-central1"
   cluster    = google_container_cluster.primary.name
   node_count = 1
