@@ -10,12 +10,13 @@ provider "google" {
 }
 
 resource "google_container_cluster" "primary" {
-  name     = "my-gke-cluster"
+  name     = "compositeCalendarCluster"
   location = "us-central1"
 
   remove_default_node_pool = true
   initial_node_count       = 1
 
+  min_master_version = "1.15.9-gke.26"
   enable_legacy_abac = true
   master_auth {
     client_certificate_config {
@@ -25,7 +26,7 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
-  name       = "my-node-pool"
+  name       = "compositeCalendarNodePool"
   location   = "us-central1"
   cluster    = google_container_cluster.primary.name
   node_count = 1
