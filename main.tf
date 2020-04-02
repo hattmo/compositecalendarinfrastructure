@@ -52,16 +52,16 @@ resource "google_sql_database" "database" {
 }
 
 resource "google_sql_database_instance" "master" {
-  name   = "compositecalendar-database-instance"
-  region = "us-central1"
+  name             = "compositecalendar-database-instance"
+  region           = "us-central1"
+  database_version = "POSTGRES_11"
   settings {
-    database_version = "POSTGRES_11"
     tier = "db-f1-micro"
   }
 }
 
 resource "random_password" "password" {
-  length = 16
+  length  = 16
   special = false
   keepers = {
     database = google_sql_database_instance.master.self_link
@@ -76,7 +76,7 @@ resource "google_sql_user" "users" {
 
 
 output "client_certificate" {
-  value = google_container_cluster.primary.master_auth.0.client_certificate
+  value     = google_container_cluster.primary.master_auth.0.client_certificate
   sensitive = true
 }
 
