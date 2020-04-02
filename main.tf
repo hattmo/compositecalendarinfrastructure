@@ -51,12 +51,26 @@ resource "google_sql_database" "database" {
   instance = google_sql_database_instance.instance.name
 }
 
-resource "google_sql_database_instance" "instance" {
+resource "google_sql_database_instance" "master" {
   name   = "compositecalendar-database-instance"
   region = "us-central1"
   settings {
     tier = "db-f1-micro"
   }
+}
+
+resource "random_password" "password" {
+  length = 16
+  special = false
+  keepers = {
+    database = google_sql_database_instance.master.self_link
+  }
+}
+
+resource "google_sql_user" "users" {
+  name     = "hattmo"
+  instance = google_sql_database_instance.master.name
+  password = random_password.password
 }
 
 
