@@ -48,7 +48,7 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
 
 resource "google_sql_database" "database" {
   name     = "compositecalendar-database"
-  instance = google_sql_database_instance.instance.name
+  instance = google_sql_database_instance.master.name
 }
 
 resource "google_sql_database_instance" "master" {
