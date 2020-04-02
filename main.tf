@@ -46,6 +46,20 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
   }
 }
 
+resource "google_sql_database" "database" {
+  name     = "compositecalendar-database"
+  instance = google_sql_database_instance.instance.name
+}
+
+resource "google_sql_database_instance" "instance" {
+  name   = "compositecalendar-database-instance"
+  region = "us-central1"
+  settings {
+    tier = "db-f1-micro"
+  }
+}
+
+
 output "client_certificate" {
   value = google_container_cluster.primary.master_auth.0.client_certificate
   sensitive = true
