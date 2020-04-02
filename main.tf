@@ -55,6 +55,7 @@ resource "google_sql_database_instance" "master" {
   name   = "compositecalendar-database-instance"
   region = "us-central1"
   settings {
+    database_version = "POSTGRES_11"
     tier = "db-f1-micro"
   }
 }
