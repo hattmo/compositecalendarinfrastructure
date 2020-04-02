@@ -70,7 +70,7 @@ resource "random_password" "password" {
 resource "google_sql_user" "users" {
   name     = "hattmo"
   instance = google_sql_database_instance.master.name
-  password = random_password.password
+  password = random_password.password.result
 }
 
 
