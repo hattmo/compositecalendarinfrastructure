@@ -18,7 +18,8 @@ jobs:
           tf_actions_comment: false
         env:
           GOOGLE_CREDENTIALS: ${{secrets.GOOGLE_CREDENTIALS}}
-
+          MONGODB_ATLAS_PRIVATE_KEY: ${{secrets.MONGODB_ATLAS_PRIVATE_KEY}}
+          MONGODB_ATLAS_PUBLIC_KEY: ${{secrets.MONGODB_ATLAS_PUBLIC_KEY}}
       - name: "Terraform Plan"
         uses: hashicorp/terraform-github-actions@master
         with:
@@ -27,7 +28,8 @@ jobs:
           tf_actions_comment: false
         env:
           GOOGLE_CREDENTIALS: ${{secrets.GOOGLE_CREDENTIALS}}
-
+          MONGODB_ATLAS_PRIVATE_KEY: ${{secrets.MONGODB_ATLAS_PRIVATE_KEY}}
+          MONGODB_ATLAS_PUBLIC_KEY: ${{secrets.MONGODB_ATLAS_PUBLIC_KEY}}
       - name: "Terraform Apply"
         if: github.ref == 'refs/heads/master'
         uses: hashicorp/terraform-github-actions@master
@@ -37,3 +39,5 @@ jobs:
           tf_actions_comment: false
         env:
           GOOGLE_CREDENTIALS: ${{secrets.GOOGLE_CREDENTIALS}}
+          MONGODB_ATLAS_PRIVATE_KEY: ${{secrets.MONGODB_ATLAS_PRIVATE_KEY}}
+          MONGODB_ATLAS_PUBLIC_KEY: ${{secrets.MONGODB_ATLAS_PUBLIC_KEY}}
