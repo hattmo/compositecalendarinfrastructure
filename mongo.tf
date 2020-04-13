@@ -45,7 +45,7 @@ resource "mongodbatlas_database_user" "compositecalendar_user" {
 }
 
 
-output "db_host" {
+output "db_connection" {
   value     = mongodbatlas_cluster.compositecalendar_cluster.srv_address
   sensitive = true
 }
