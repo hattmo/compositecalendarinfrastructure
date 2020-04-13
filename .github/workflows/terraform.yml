@@ -20,8 +20,8 @@ jobs:
           GOOGLE_CREDENTIALS: ${{secrets.GOOGLE_CREDENTIALS}}
           MONGODB_ATLAS_PRIVATE_KEY: ${{secrets.MONGODB_ATLAS_PRIVATE_KEY}}
           MONGODB_ATLAS_PUBLIC_KEY: ${{secrets.MONGODB_ATLAS_PUBLIC_KEY}}
-          TF_VAR_CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
-          TF_VAR_CLIENT_ID: ${{secrets.CLIENT_ID}}
+          TF_VAR_OAUTH_CLIENT_SECRET: ${{secrets.OAUTH_CLIENT_SECRET}}
+          TF_VAR_OAUTH_CLIENT_ID: ${{secrets.OAUTH_CLIENT_ID}}
       - name: "Terraform Plan"
         uses: hashicorp/terraform-github-actions@master
         with:
@@ -32,8 +32,8 @@ jobs:
           GOOGLE_CREDENTIALS: ${{secrets.GOOGLE_CREDENTIALS}}
           MONGODB_ATLAS_PRIVATE_KEY: ${{secrets.MONGODB_ATLAS_PRIVATE_KEY}}
           MONGODB_ATLAS_PUBLIC_KEY: ${{secrets.MONGODB_ATLAS_PUBLIC_KEY}}
-          TF_VAR_CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
-          TF_VAR_CLIENT_ID: ${{secrets.CLIENT_ID}}
+          TF_VAR_OAUTH_CLIENT_SECRET: ${{secrets.OAUTH_CLIENT_SECRET}}
+          TF_VAR_OAUTH_CLIENT_ID: ${{secrets.OAUTH_CLIENT_ID}}
       - name: "Terraform Apply"
         if: github.ref == 'refs/heads/master'
         uses: hashicorp/terraform-github-actions@master
@@ -45,5 +45,5 @@ jobs:
           GOOGLE_CREDENTIALS: ${{secrets.GOOGLE_CREDENTIALS}}
           MONGODB_ATLAS_PRIVATE_KEY: ${{secrets.MONGODB_ATLAS_PRIVATE_KEY}}
           MONGODB_ATLAS_PUBLIC_KEY: ${{secrets.MONGODB_ATLAS_PUBLIC_KEY}}
-          TF_VAR_CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
-          TF_VAR_CLIENT_ID: ${{secrets.CLIENT_ID}}
+          TF_VAR_OAUTH_CLIENT_SECRET: ${{secrets.OAUTH_CLIENT_SECRET}}
+          TF_VAR_OAUTH_CLIENT_ID: ${{secrets.OAUTH_CLIENT_ID}}

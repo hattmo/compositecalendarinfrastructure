@@ -40,22 +40,22 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
   }
 }
 
-output "client_certificate" {
+output "kube_client_certificate" {
   value     = google_container_cluster.primary.master_auth.0.client_certificate
   sensitive = true
 }
 
-output "client_key" {
+output "kube_client_key" {
   value     = google_container_cluster.primary.master_auth.0.client_key
   sensitive = true
 }
 
-output "ca_certificate" {
+output "kube_ca_certificate" {
   value     = google_container_cluster.primary.master_auth.0.cluster_ca_certificate
   sensitive = true
 }
 
-output "host" {
+output "kube_host" {
   value     = google_container_cluster.primary.endpoint
   sensitive = true
 }
